@@ -1,8 +1,0 @@
-<weevil-job>
-          <workflow-id>b021f34f-1708-42d7-a85b-0b6667b8b80f</workflow-id>
-          <job-id>b95614e6-15d7-487b-aab9-7f724c5f798f</job-id>
-          <name>pool0:processor_job:95</name>
-          <jobtype>javascript</jobtype>
-          <parameters><a><a.0> 10000000</a.0></a></parameters>
-          <source>assets/workflow_results/b021f34f-1708-42d7-a85b-0b6667b8b80f/pool0:processor_job:95.js</source>
-        </weevil-job>
