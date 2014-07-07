@@ -1,0 +1,45 @@
+<workflow>
+    <nodes>
+        <value id="val0" value="660" returntype="Number" />
+        <value id="val1" src="array_nums" returntype="Array" />  
+        <value id="val3" value="660" returntype="Number" />
+        <pool id="col0" returntype="Number">
+            <parameters>
+                <parameter paramtype="Array" id="a" />
+            </parameters>
+            <processor id="col0_processor0" src="Doubler" returntype="Number">
+                    <parameters>
+                        <parameter paramtype="Number" id="a" />
+                    </parameters>
+
+            </processor>
+            <reducer id="col0_reducer" src="SumReduce" returntype="Number">
+                    <parameters>
+                        <parameter paramtype="Array" id="a" />
+                    </parameters>
+            </reducer>
+        </pool>
+        <job id="add0" src="Add" returntype="Number">
+            <parameters>
+                <parameter paramtype="Number" id="a" />
+                <parameter paramtype="Number" id="b" />
+            </parameters>
+        </job>
+        <job id="add1" src="Add" returntype="Number">
+            <parameters>
+                <parameter paramtype="Number" id="a" />
+                <parameter paramtype="Number" id="b" />
+            </parameters>
+        </job>
+    </nodes>
+    <edges>
+        <edge id="zeroth" source="val1" dest="col0" paramdest="a" />
+        <!-- TODO: intrinsic edge between each input array to processor -->
+        <edge id="first" source="col0" dest="add0" paramdest="a" />
+        <edge id="second" source="val0" dest="add0" paramdest="b" />
+        <edge id="first" source="add0" dest="add1" paramdest="a" />
+        <edge id="second" source="col0" dest="add1" paramdest="b" />
+    </edges>
+    <finalnode id="add1" />
+</workflow>
+

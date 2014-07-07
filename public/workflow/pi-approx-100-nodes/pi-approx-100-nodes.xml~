@@ -1,0 +1,24 @@
+<workflow>
+    <nodes>
+	<value id="val1" src="piapprox_chunk_size_100_nodes" returntype="Array" />  
+        <pool id="col0" returntype="Number">
+            <parameters>
+                <parameter paramtype="Array" id="a" />
+            </parameters>
+            <processor id="col0_processor0" src="PiApprox" returntype="Number">
+                    <parameters>
+                        <parameter paramtype="Number" id="niter" />
+                    </parameters>
+            </processor>
+            <reducer id="col0_reducer" src="PiReduce100Nodes" returntype="Number">
+                    <parameters>
+                        <parameter paramtype="Array" id="a" />
+                    </parameters>
+            </reducer>
+        </pool>
+    </nodes>
+    <edges>
+        <edge id="zeroth" source="val1" dest="col0" paramdest="a" />
+    </edges>
+    <finalnode id="col0" />
+</workflow>

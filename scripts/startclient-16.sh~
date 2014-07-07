@@ -1,0 +1,9 @@
+#!/bin/sh
+
+SERVER=localhost:9000
+BROWSER=echo
+#killall $BROWSER
+for i in {0..15}; do
+	$BROWSER $SERVER;
+done
+

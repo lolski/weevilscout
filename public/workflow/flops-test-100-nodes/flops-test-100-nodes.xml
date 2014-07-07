@@ -1,0 +1,26 @@
+<workflow>
+    <nodes>
+        <value id="val0" src="flop_test_100_nodes_10M_sample_size" returntype="Array" />
+        <pool id="pool0" returntype="Number">
+            <parameters>
+                <parameter paramtype="Array" id="a" />
+            </parameters>
+            <processor id="pool0_processor0" src="FLOPS" returntype="Number">
+                    <parameters>
+                        <parameter paramtype="Number" id="a" />
+                    </parameters>
+
+            </processor>
+            <reducer id="pool0_reducer" src="FLOPS_SumReduce" returntype="Number">
+                    <parameters>
+                        <parameter paramtype="Array" id="a" />
+                    </parameters>
+            </reducer>
+        </pool>
+    </nodes>
+    <edges>
+        <edge id="edge0" source="val0" dest="pool0" />
+    </edges>
+    <finalnode id="pool0" />
+</workflow>
+

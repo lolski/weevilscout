@@ -1,0 +1,8 @@
+@(dir: java.io.File)<?xml version="1.0" encoding="UTF-8"?>
+<root>
+@for(d <- dir listFiles) {
+  @if(d isDirectory) {
+    <weevil>@d.getName</weevil>
+  }
+}
+</root>

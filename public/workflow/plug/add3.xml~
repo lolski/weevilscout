@@ -1,0 +1,32 @@
+<!--
+    datatype: String, Number, Boolean, Array, Object, Null
+-->
+<workflow>
+    <vertices>
+        <weevil type="immediate" name="val1" value="44" returntype="Number" />
+        <weevil type="immediate" name="val2" value="13" returntype="Number "/>
+        <weevil type="calculated" name="val3" src="Add">
+            <parameters>
+                <parameter type="Number" id="a" />
+                <parameter type="Number" id="b" />
+            </parameters>
+            <return type="Number" />
+        </weevil>
+        <weevil type="calculated" name="val4" src="Add">
+            <parameters>
+                <parameter type="Number" id="a" />
+                <parameter type="Number" id="b" />
+            </parameters>
+            <return type="Number" />
+        </weevil>
+    </vertices>
+        <weevil type="immediate" name="val5" value="100" returntype="Number "/>
+        <weevil type="immediate" name="val6" value="200" returntype="Number "/>
+    <edges>
+        <edge id="first" source="val1" dest="val3" paramdest="a" /> <!-- 44 -->
+        <edge id="second" source="val2" dest="val3" paramdest="b" /> <!-- 13 -->
+        <edge id="third" source="val5" dest="val4" paramdest="a" /> <!-- 100 -->
+        <edge id="fourth" source="val1" dest="val4" paramdest="b" /> <!-- 44 -->
+        
+    </edges>
+</workflow>

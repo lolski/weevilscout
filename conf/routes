@@ -1,0 +1,23 @@
+#General
+GET         /                           controllers.JobFrontend.index
+GET         /worker                     controllers.WorkerFrontend.index
+GET         /admin                      controllers.AdminFrontend.index
+GET         /assets/*file               controllers.Assets.at(path="/public", file)
+GET		    /cmd/heartbeat				controllers.JobFrontend.heartbeat
+GET		    /cmd/end/:id		        controllers.JobFrontend.end(id)
+GET         /clearAll                   controllers.JobFrontend.clearAll
+
+#Workflow
+GET			/cmd/workflow/getstore/:id	controllers.WorkflowFrontend.getstore(id)
+POST        /cmd/workflow/enqueue       controllers.WorkflowFrontend.enqueue
+POST		/cmd/submit			    	controllers.JobFrontend.submit
+
+#Weevil
+GET         /cmd/getstore/:id           controllers.JobFrontend.getstore(id)
+GET	      	/cmd/dequeue/:id	        controllers.JobFrontend.dequeue(id)
+POST		/cmd/enqueue	    		controllers.JobFrontend.enqueue
+POST        /cmd/submit_noworkflow      controllers.JobFrontend.submit_noworkflow
+
+
+#Debug
+GET         /sendactormsg         controllers.Debug.sendactormsg

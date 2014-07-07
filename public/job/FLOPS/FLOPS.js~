@@ -1,0 +1,18 @@
+function weevil_main (a) {
+    var sample_size = Number(a);
+    //var start = new Date().getTime();
+    var A = new Float32Array(sample_size);
+    var B = new Float32Array(sample_size);
+    for (var i = 0; i < sample_size; ++i) {
+        A[i] = i;
+        B[i] = sample_size - i;
+    }
+    var C = new Float32Array(sample_size);
+    for (var i = 0; i < sample_size; ++i) {
+        C[i] = A[i] + B[i];
+    }
+    //var end = new Date().getTime();
+    //var exec_time = end - start;
+    //var flops = sample_size * (1e3/exec_time);
+    return [0, sample_size, 0, 0];
+}

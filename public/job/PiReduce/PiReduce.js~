@@ -1,0 +1,14 @@
+function weevil_main(a) {
+    var flopCount = 0
+    //var start = new Date().getTime();
+    a = eval(a);
+    var count = 0;
+    for (var i = 0; i < a.length; ++i) {
+        count += a[i][0]/40000000*4; // 4 + 1
+        flopCount += 5;
+    }
+    //var end = new Date().getTime();
+    //var exec_time = end - start;
+    //var flops = flopCount * (1e3/exec_time);
+    return [count, flopCount, 0, 0];
+}

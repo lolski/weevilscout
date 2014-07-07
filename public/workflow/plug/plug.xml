@@ -1,0 +1,34 @@
+<!--
+    datatype: String, Number, Boolean, Array, Object, Null
+-->
+<workflow>
+    <parameters>
+        <parameter type="Number" id="a" dest="" paramdest="" />
+    </parameters>
+    <nodes>
+        <value id="val1" value="44" returntype="Number" />
+        <value id="val2" value="13" returntype="Number "/>
+        <job id="val3" src="Add">
+            <parameters>
+                <parameter paramtype="Number" id="a" />
+                <parameter paramtype="Number" id="b" />
+            </parameters>
+            <return type="Number" />
+        </job>
+        <job id="val4" src="Add">
+            <parameters>
+                <parameter paramtype="Number" id="a" />
+                <parameter paramtype="Number" id="b" />
+            </parameters>
+            <return type="Number" />
+        </job>
+        <value id="val5" value="100" returntype="Number "/>
+    </nodes>
+    <edges>
+        <edge id="first" source="val1" dest="val3" paramdest="a" /> <!-- 44 -->
+        <edge id="second" source="val2" dest="val3" paramdest="b" /> <!-- 13 -->
+        <edge id="third" source="val5" dest="val4" paramdest="a" /> <!-- 100 -->
+        <edge id="fourth" source="val1" dest="val4" paramdest="b" /> <!-- 44 -->
+    </edges>
+    <finalnode id="val4" />
+</workflow>

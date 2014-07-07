@@ -1,0 +1,27 @@
+<workflow>
+    <nodes>
+        <value id="val1" value="13" returntype="Number" />
+        <value id="val2" value="15" returntype="Number" />
+        <value id="val3" value="72" returntype="Number" />
+        <job src="Add.cl" id="webcl0" jobtype="webcl" returntype="Number">
+            <parameters>
+                <parameter id="a" paramtype="Number" />
+                <parameter id="b" paramtype="Number" />
+            </parameters>
+        </job>
+        <job src="Add.cl" id="webcl1" jobtype="webcl" returntype="Number">
+            <parameters>
+                <parameter id="andy" paramtype="Number" />
+                <parameter id="buddy" paramtype="Number" />
+            </parameters>
+        </job>
+    </nodes>
+    <edges>
+        <edge id="edge1" source="val1" dest="webcl0" paramdest="a" />
+        <edge id="edge2" source="val2" dest="webcl0" paramdest="b" />
+        <edge id="edge3" source="webcl0" dest="webcl1" paramdest="andy" />
+        <edge id="edge4" source="val3" dest="webcl1" paramdest="buddy" />
+    </edges>
+    <finalnode id="webcl1" />
+</workflow>
+

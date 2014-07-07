@@ -1,0 +1,15 @@
+<workflow>
+    <nodes>
+        <value id="val0" value="8388608" returntype="Number" /> <!-- 2^23 -->
+        <job id="job0" src="FLOPS" returntype="Number">
+            <parameters>
+                <parameter paramtype="Number" id="a" />
+            </parameters>
+        </job>
+    </nodes>
+    <edges>
+        <edge id="first" source="val0" dest="job0" paramdest="a" />
+    </edges>
+    <finalnode id="job0" />
+</workflow>
+

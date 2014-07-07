@@ -1,0 +1,11 @@
+#!/bin/sh
+
+echo "clearing geolocations and runqueue table and job/workflow instances folders..."
+curl localhost:9000/clearAll
+echo ""
+cd /Users/lolski/UVA/weevil/weevil-source/public
+rm job_running/*
+rm -r workflow_results/*
+rm -r results/*
+echo "done."
+date

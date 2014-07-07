@@ -1,0 +1,8 @@
+<weevil-job>
+          <workflow-id>755fa8bd-59f1-4867-ba6a-bf8cbd1af2fb</workflow-id>
+          <job-id>14ee78d4-7cb9-47fb-a9ae-25e4082cb2db</job-id>
+          <name>job2</name>
+          <jobtype>javascript</jobtype>
+          <parameters><b><b.0>44</b.0></b><a><a.0>100</a.0></a></parameters>
+          <source>assets/workflow_results/755fa8bd-59f1-4867-ba6a-bf8cbd1af2fb/job2.js</source>
+        </weevil-job>

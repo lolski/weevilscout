@@ -1,0 +1,14 @@
+<workflow>
+    <nodes>
+        <job src="FLOPS" id="0">
+            <parameters></parameters>
+        </job>
+        <job src="FLOPS" id="1">
+            <parameters></parameters>
+        </job>
+    </nodes>
+    <edges>
+    </edges>
+    <finalnode id="webcl1" />
+</workflow>
+

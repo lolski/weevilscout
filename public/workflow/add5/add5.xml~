@@ -1,0 +1,39 @@
+<!--
+    datatype: String, Number, Boolean, Array, Object, Null
+    this example shows why the current dataflow approach is not enough
+-->
+<workflow>
+    <nodes>
+        <value id="val1" value="44" returntype="Number" />
+        <value id="val2" value="13" returntype="Number "/>
+        <job id="job1" src="Add" returntype="Number">
+            <parameters>
+                <parameter paramtype="Number" id="a" />
+                <parameter paramtype="Number" id="b" />
+            </parameters>
+        </job>
+        <job id="job2" src="Add" returntype="Number">
+            <parameters>
+                <parameter paramtype="Number" id="a" />
+                <parameter paramtype="Number" id="b" />
+            </parameters>
+        </job>
+        <value id="val5" value="100" returntype="Number "/>
+        <job id="job3" src="Add" returntype="Number">
+            <parameters>
+                <parameter paramtype="Number" id="a" />
+                <parameter paramtype="Number" id="b" />
+            </parameters>
+        </job>
+    </nodes>
+    <edges>
+        <edge id="first" source="val1" dest="job1" paramdest="a" /> <!-- 44 -->
+        <edge id="second" source="val2" dest="job1" paramdest="b" /> <!-- 13 -->
+        <edge id="third" source="val5" dest="job2" paramdest="a" /> <!-- 100 -->
+        <edge id="fourth" source="val1" dest="job2" paramdest="b" /> <!-- 44 -->
+        <edge id="fourth" source="job2" dest="job3" paramdest="a" /> <!-- 144 -->
+        <edge id="fourth" source="job1" dest="job3" paramdest="b" /> <!-- 57 -->
+        
+    </edges>
+    <worflowresult id="job3" /> <!-- TODO: store in <workflow_id>/final_OUT.html, then mark it as workflow value -->
+</workflow>

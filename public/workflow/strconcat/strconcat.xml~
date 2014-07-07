@@ -1,0 +1,17 @@
+<workflow>
+    <nodes>
+        <value value="Hi, " id="val0" />
+        <value value="John!" id="val1" />
+        <job src="Add" id="job0">
+            <parameters>
+                <parameter id="a" />
+                <parameter id="b" />
+            </parameters>
+        </job>
+    </nodes>
+    <edges>
+        <edge id="first" source="val0" dest="job0" paramdest="a" />
+        <edge id="second" source="val1" dest="job0" paramdest="b" />
+    </edges>
+    <finalnode id="job0" />
+</workflow>
