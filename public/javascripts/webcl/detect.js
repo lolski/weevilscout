@@ -9,7 +9,7 @@
 function WebCL_detect() {
     // First check if the WebCL extension is installed at all
     if (window.WebCL == undefined) {
-        return true;
+        return false;
     }
 
     // Get a list of available CL platforms, and another list of the

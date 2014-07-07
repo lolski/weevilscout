@@ -39,8 +39,7 @@ function joinWeevilNetwork() {
     var paramHash;
     var regxfloat = /^[-+]?\d+(\.\d+){1}$/;
     var regxint = /^[-+]?\d+$/;
-    //dequeueWorker.addEventListener('message', 
-    function test(e) {
+    dequeueWorker.addEventListener('message', function test(e) {
         var xmlDoc = stringtoXML(e.data);
         paramHash = new Object();
         var startTime;
@@ -245,8 +244,8 @@ function joinWeevilNetwork() {
             swapDivText("tstate","Working");
         }
     }
-    //,
-    //false);
+    ,
+    false);
     dequeueWorker.postMessage({
         'id': id,
         'flops': flops,
