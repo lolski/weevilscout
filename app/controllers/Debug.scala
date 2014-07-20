@@ -3,6 +3,8 @@ package controllers
 import play.api.mvc.{Action, Controller}
 import core.workflow.actor.ActorManager
 import core.workflow.actor.message._
+import test.TestDriver
+
 /**
  * Created with IntelliJ IDEA.
  * User: lolski
@@ -19,5 +21,9 @@ object Debug extends Controller {
       val actorRef = ActorManager.rootActorSystem.actorFor(path)
       actorRef ! ResultNotReadyMessage()
       Ok
+  }
+  def deadlettersTest = Action {
+    TestDriver.runAll()
+    Ok
   }
 }

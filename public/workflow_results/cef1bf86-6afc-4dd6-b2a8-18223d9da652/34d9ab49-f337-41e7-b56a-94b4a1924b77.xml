@@ -1,0 +1,8 @@
+<weevil-job>
+          <workflow-id>cef1bf86-6afc-4dd6-b2a8-18223d9da652</workflow-id>
+          <job-id>34d9ab49-f337-41e7-b56a-94b4a1924b77</job-id>
+          <name>val3</name>
+          <jobtype>javascript</jobtype>
+          <parameters><b><b.0>13</b.0></b><a><a.0>44</a.0></a></parameters>
+          <source>assets/workflow_results/cef1bf86-6afc-4dd6-b2a8-18223d9da652/val3.js</source>
+        </weevil-job>

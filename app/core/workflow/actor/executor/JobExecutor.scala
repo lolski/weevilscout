@@ -1,6 +1,7 @@
 package core.workflow.actor.executor
 
 import akka.actor.{Actor}
+import test.JobNameFromActorPathMap
 import scala.concurrent.{Await, Promise}
 import scala.concurrent.duration._
 import config.Config
@@ -23,6 +24,10 @@ class JobExecutor(override val ref: JobDescription)
   extends Actor with Executor[JobDescription] with SimpleExecutorCleanUpProcedure[JobDescription] {
   implicit val ec = CachedThreadPoolWorkflowDispatcher.getExecutionContext
   val value = Promise[String]
+  override def preStart() = {
+    println("Starting JobExecutor " + ref.name)
+    JobNameFromActorPathMap.collection += (self.path.toString -> ref.name)
+  }
   override def receive = {
     case StartMessage() =>
       markThisNodeAsStarted()

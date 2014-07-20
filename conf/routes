@@ -20,6 +20,6 @@ GET         /cmd/dequeue/:id                  controllers.JobFrontend.dequeue(id
 POST        /cmd/enqueue                      controllers.JobFrontend.enqueue
 POST        /cmd/submit_noworkflow            controllers.JobFrontend.submit_noworkflow
 
-
 #Debug
-GET         /sendactormsg                     controllers.Debug.sendactormsg
+# GET       /sendactormsg                     controllers.Debug.sendactormsg
+GET         /dlt                 controllers.Debug.deadlettersTest

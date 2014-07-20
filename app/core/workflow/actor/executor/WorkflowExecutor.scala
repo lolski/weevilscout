@@ -22,7 +22,7 @@ class WorkflowExecutor(val workflowId: UUID, val name: String) extends Actor {
       executorRef ! StartMessage()
     case SpawnValueMessage(ref) =>
       val executorRef = context.actorOf(Props(new ValueExecutor(ref)), ref.nodeId.toString)
-      println("isInstanceOf SECUP: " + executorRef.isInstanceOf[SimpleExecutorCleanUpProcedure[core.workflow.dataflow.node.SimpleNode]])
+      //println("isInstanceOf SECUP: " + executorRef.isInstanceOf[SimpleExecutorCleanUpProcedure[core.workflow.dataflow.node.SimpleNode]])
       executorRef ! StartMessage()
     case TerminateWorkflowSupervisorMessage() =>
       // TODO
