@@ -25,6 +25,7 @@ class ListenToDeadLetters extends Actor {
           println()
           val senderJobName = JobNameFromActorPathMap.collection.get(sender.path.toString)
           val receiverJobName = JobNameFromActorPathMap.collection.get(to.path.toString)
+          val as = context.system
           println("Undelivered RequestResultMessage from " + senderJobName.getOrElse(sender.path.toString) + " to " + receiverJobName.getOrElse(to.path.toString))
           println()
         }

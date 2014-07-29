@@ -25,8 +25,8 @@ class JobExecutor(override val ref: JobDescription)
   implicit val ec = CachedThreadPoolWorkflowDispatcher.getExecutionContext
   val value = Promise[String]
   override def preStart() = {
-    println("Starting JobExecutor " + ref.name)
-    JobNameFromActorPathMap.collection += (self.path.toString -> ref.name)
+//    println("Starting JobExecutor " + ref.name)
+    JobNameFromActorPathMap.collection += (self.path.toString -> (ref.parentWorkflowId.get.toString, ref.name))
   }
   override def receive = {
     case StartMessage() =>

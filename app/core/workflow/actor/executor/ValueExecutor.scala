@@ -17,8 +17,8 @@ import test.JobNameFromActorPathMap
 class ValueExecutor(override val ref: ValueDescription)
   extends Actor with Executor[ValueDescription] with SimpleExecutorCleanUpProcedure[ValueDescription] {
   override def preStart() = {
-    println("Starting ValueExecutor " + ref.name)
-    JobNameFromActorPathMap.collection += (self.path.toString -> ref.name)
+//    println("Starting ValueExecutor " + ref.name)
+    JobNameFromActorPathMap.collection += (self.path.toString -> (ref.parentWorkflowId.get.toString, ref.name))
   }
 
   def receive = {

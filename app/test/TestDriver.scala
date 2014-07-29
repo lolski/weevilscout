@@ -5,6 +5,6 @@ package test
  */
 object TestDriver {
   def runAll() {
-    TestList.workflowEndedCausesDeadlettersV1()
+    TestList.workflowEndedCausesDeadlettersV1(1)
   }
 }

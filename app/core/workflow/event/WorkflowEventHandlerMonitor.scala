@@ -24,7 +24,7 @@ class WorkflowEventHandlerMonitor(nodeId: UUID) extends WorkflowEvents {
 
   override def onWorkflowStarted(inst: WorkflowInstance) {
     m.markWorkflowStarted()
-    println("Workflow started")
+    println("Workflow started: " + inst.nodeId)
   }
 
   override def onWorkflowFinished(inst: WorkflowInstance) {
@@ -35,7 +35,7 @@ class WorkflowEventHandlerMonitor(nodeId: UUID) extends WorkflowEvents {
     val workflowActorPath = getWorkflowActorPathFromWorkflowId(inst.nodeId)
     val workflowActorRef = ActorManager.rootActorSystem.actorFor(workflowActorPath)
     workflowActorRef ! TerminateWorkflowSupervisorMessage()
-    println("Workflow finished in " + elapsed + "ns")
+    println("Workflow finished: " + inst.nodeId + " elapsed: " + elapsed + "ns")
 
     WorkflowDescriptionVisualization.generateWorkflowStructureAsGraphVisualization(inst)
     WorkflowMonitorVisualization.generateWorkflowExecutionPerformanceAsTimelineVisualization(m)

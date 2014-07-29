@@ -19,7 +19,6 @@ object WorkflowCollection {
   val listenToDeadLetters = rootActorSystem.actorOf(Props(new ListenToDeadLetters()), "listenToDeadLetters")
   rootActorSystem.eventStream.subscribe(listenToDeadLetters, classOf[DeadLetter])
 	def launch(userId: UUID, content: XmlNode) {
-
     val instance = new WorkflowInstance(userId, UUID.randomUUID().toString, content)
     instance.enqueue() // execute all the jobs in the workflow
     workflowInstances.put(instance.nodeId, instance)
