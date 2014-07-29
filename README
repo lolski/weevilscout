@@ -1,3 +1,3 @@
-This is the continuation of the work I've done during my time at the University of Amsterdam. The early works have been published as a [paper](http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6407142) and a [master's thesis](http://www.science.uva.nl/~adam/MSctheses/thesis_Ganesh.pdf).
+WeevilScout prototype framework is a new approach to distributed computing with Web browsers. The proliferation of Web browsers and the performance gains being achieved by current JavaScript virtual machines raises the question whether Internet browsers can become yet another middleware for distributed computing. With 2 billion users online, computing through Internet browsers has the potential to amass immense resources, thus transforming the Internet into a distributed computer ideal for common classes of distributed scientific applications such as parametric studies.
 
-
+The platform, as of now supports orchestration that can be described using XML. The unit of works it accepts are Javascript programs, and will be ran on the connected web browsers.
