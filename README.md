@@ -11,7 +11,7 @@ The platform is currently developed using Scala 2.10.3, Play Framework 2.1 and A
 The Akka actor model is used extensively in the orchestration engine.
 
 Contribution
-========================
+============
 Contributors are welcomed. Preferable those that have experience working with Scala, Akka, OpenCL and/or Javascript. Please contact me at soulmagic13@gmail.com for any contribution and inquiries.
 
 Links
