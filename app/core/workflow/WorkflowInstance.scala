@@ -44,6 +44,7 @@ class WorkflowInstance(override val userId: UUID, override val name: String, val
       for (elem <- startNodeCollection) {
         bootstrapExecution(elem)
       }
+      //println("finish bootstrap")
       eventHandlersMonitor.onWorkflowStarted(this)
     }
     else {
@@ -67,10 +68,12 @@ class WorkflowInstance(override val userId: UUID, override val name: String, val
       }).toList.toSet
       jobNode.outgoing = outgoing
       workflowSupervisor ! SpawnJobMessage(jobNode)
+      //println("send SpawnJobMessage to " + jobNode.name)
     }
     else if (node.isInstanceOf[ValueDescription]) {
       val valueNode = node.asInstanceOf[ValueDescription]
       workflowSupervisor ! SpawnValueMessage(valueNode)
+      //println("send SpawnValueMessage to " + valueNode.name)
     }
     else if (node.isInstanceOf[PoolDescription]) {
       // you can't because where would you get the input to the pool from?

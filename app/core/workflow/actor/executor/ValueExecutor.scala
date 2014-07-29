@@ -5,6 +5,7 @@ import core.workflow.actor.message._
 import core.workflow.dataflow.node.ValueDescription
 import core.workflow.WorkflowCollection
 import core.exception.EntryNotFoundException
+import test.JobNameFromActorPathMap
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,6 +16,11 @@ import core.exception.EntryNotFoundException
  */
 class ValueExecutor(override val ref: ValueDescription)
   extends Actor with Executor[ValueDescription] with SimpleExecutorCleanUpProcedure[ValueDescription] {
+  override def preStart() = {
+//    println("Starting ValueExecutor " + ref.name)
+    JobNameFromActorPathMap.collection += (self.path.toString -> (ref.parentWorkflowId.get.toString, ref.name))
+  }
+
   def receive = {
     case StartMessage() =>
       markThisNodeAsStarted()

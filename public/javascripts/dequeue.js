@@ -19,14 +19,13 @@ function dequeue(){
 				id = null;
 				var scale = 5000000;
 				var timeout = scale / flops;
-				setTimeout(dequeue, /*timeout **/ 1000); //
+				setTimeout(dequeue, /*timeout **/ 10000); //
 			}else{
 				self.postMessage(txtDoc);
 			}
 		}
 	};
         oXmlHttp.send(null);
-	//setTimeout(doCall,5000);
 }
 dequeue();
 
